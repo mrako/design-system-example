@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox renders correctly 1`] = `
+<div
+  className="uk-margin"
+>
+  <label
+    htmlFor="checkbox"
+  >
+    <input
+      className="uk-checkbox"
+      type="checkbox"
+    />
+     
+  </label>
+</div>
+`;

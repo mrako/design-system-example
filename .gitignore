@@ -1,0 +1,43 @@
+# OSX
+.DS_Store
+
+# Node
+node_modules
+
+# Logs
+*.log
+
+# Ansible
+.vagrant
+playbook.retry
+
+# Environment
+.env
+
+# Keys
+keys
+*.pem
+
+# Compiled Python
+*.pyc
+
+# Test results
+results
+robot/log.html
+robot/output.xml
+robot/report.html
+robot/selenium-*.png
+
+# Build artifacts
+frontend/build
+nginx/build
+
+# Test images
+uploads
+
+# Apidoc
+backend/doc
+
+# ides
+*.idea
+*.iml

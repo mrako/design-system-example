@@ -1,0 +1,7 @@
+{
+  "rootDir": "../..",
+  "transform": {
+   "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jest.transform.js"
+  },
+  "testURL": "http://localhost"
+}

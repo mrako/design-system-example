@@ -1,0 +1,26 @@
+---
+- name: Install required modules
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Add docker gpg
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+- name: Add docker repository
+  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+- name: Update apt package cache
+  action: apt update_cache=yes
+
+- name: Install docker-ce
+  apt: pkg=docker-ce state=latest
+
+- name: Install docker-compose
+  command: pip install docker-compose
+
+- name: Add group rights
+  command: usermod -aG docker {{ username }}

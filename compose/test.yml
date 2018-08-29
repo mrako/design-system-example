@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  jest:
+    build: frontend
+    command: npm test
+
+  lint:
+    build: frontend
+    command: npm run lint
+
+  audit:
+    build: frontend
+    command: npm audit
