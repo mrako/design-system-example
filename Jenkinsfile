@@ -28,13 +28,13 @@ pipeline {
 
     stage('Lint') {
       steps {
-        runCompose("-f compose/test.yml", "run lint-frontend")
+        runCompose("-f compose/test.yml", "run lint")
       }
     }
 
     stage('Audit') {
       steps {
-        runCompose("-f compose/test.yml", "run audit-frontend")
+        runCompose("-f compose/test.yml", "run audit")
       }
     }
 
