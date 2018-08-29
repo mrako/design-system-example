@@ -63,7 +63,7 @@ pipeline {
 
   post {
     always {
-      notifyBuild(currentBuild.result)
+      // notifyBuild(currentBuild.result)
 
       runCompose("-f docker-compose.yml -f compose/test.yml -f compose/robot.yml", "down -v")
     }
