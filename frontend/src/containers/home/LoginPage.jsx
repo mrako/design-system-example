@@ -19,7 +19,7 @@ const LoginPage = (props) => {
 
       <Checkbox id="rememberme" value="Keep me logged in" />
 
-      <Button type="submit" value="LOG IN" onClick={handleLogin} secondary />
+      <Button type="submit" value="LOG IN" onClick={handleLogin} danger />
 
       <Footer />
     </Fragment>
