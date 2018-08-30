@@ -17,7 +17,7 @@ const LoginPage = (props) => {
 
       <TextField placeholder="Password" name="password" type="password" icon="lock" />
 
-      <Checkbox value="Keep me logged in" />
+      <Checkbox id="rememberme" value="Keep me logged in" />
 
       <Button type="submit" value="LOG IN" onClick={handleLogin} primary />
 
