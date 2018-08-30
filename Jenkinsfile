@@ -66,12 +66,13 @@ pipeline {
       }
     }
   }
-
+/*
   post {
     always {
       // notifyBuild(currentBuild.result)
     }
   }
+*/
 }
 
 def runCompose(composeFiles = "", operation = "build", setEnvironment = "") {
