@@ -1,12 +1,18 @@
 import React from 'react';
 
 const Checkbox = (props) => {
-  const { type, value, primary, onClick } = props;
+  const { type, value, primary, secondary, danger, onClick } = props;
 
   const className = ['uk-button', 'uk-button-large', 'uk-width-1-1'];
 
   if (primary) {
     className.push('uk-button-primary');
+  }
+  if (secondary) {
+    className.push('uk-button-secondary');
+  }
+  if (danger) {
+    className.push('uk-button-danger');
   }
 
   return (
