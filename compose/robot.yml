@@ -8,7 +8,7 @@ services:
 
   robot:
     build: robot
-    command: sh -c '/robot/wait-for frontend:8000 -t 10 -r 30 --wget -- python /robot/run.py --outputdir /results'
+    command: sh -c '/robot/wait-for frontend:8888 -t 10 -r 30 --wget -- python /robot/run.py --outputdir /results'
     environment:
       BROWSER: HeadlessChrome
       SERVER: http://frontend:8888
