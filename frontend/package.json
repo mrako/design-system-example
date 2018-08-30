@@ -1,13 +1,13 @@
 {
-  "name": "react-frontend",
+  "name": "design-system-example",
   "version": "0.0.1",
-  "description": "React Template",
+  "description": "Design System Example",
   "author": "Marko Klemetti <marko.klemetti@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/trail/react-template.git"
+    "url": "https://github.com/trail/design-system-example.git"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --config config/webpack.config.development.js --progress --inline --colors",
