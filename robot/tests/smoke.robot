@@ -17,4 +17,4 @@ Login with
   [Arguments]  ${email}  ${password}
   Input Text      email       ${email}
   Input Text      password    ${password}
-  Click Button    LOG IN
+  Click Button    LOGIN

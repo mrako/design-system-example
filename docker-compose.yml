@@ -3,7 +3,5 @@ version: '2'
 services:
   frontend:
     build: frontend
-    volumes:
-      - ./frontend/src:/usr/src/app/src
     ports:
       - 8008:8000
