@@ -59,13 +59,17 @@ pipeline {
         }
       }
     }
+
+    stage('Deploy') {
+      steps {
+        runCompose("-f docker-compose.yml", "up -d")
+      }
+    }
   }
 
   post {
     always {
       // notifyBuild(currentBuild.result)
-
-      runCompose("-f docker-compose.yml -f compose/test.yml -f compose/robot.yml", "down -v")
     }
   }
 }
