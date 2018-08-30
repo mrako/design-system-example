@@ -1,19 +1,19 @@
 version: '2'
 
 services:
-  frontend:
+  robot.frontend:
     build: frontend
     ports:
-      - 8888:8000
+      - 8000
 
   robot:
     build: robot
-    command: sh -c '/robot/wait-for frontend:8888 -t 10 -r 30 --wget -- python /robot/run.py --outputdir /results'
+    command: sh -c '/robot/wait-for robot.frontend:8000 -t 10 -r 30 --wget -- python /robot/run.py --outputdir /results'
     environment:
       BROWSER: HeadlessChrome
-      SERVER: http://frontend:8888
+      SERVER: http://robot.frontend:8000
     volumes:
       - ./robot:/robot:ro
       - ./results/robot:/results:rw
     depends_on:
-      - frontend
+      - robot.frontend
