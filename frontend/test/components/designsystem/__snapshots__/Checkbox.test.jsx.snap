@@ -4,9 +4,7 @@ exports[`Checkbox renders correctly 1`] = `
 <div
   className="uk-margin"
 >
-  <label
-    htmlFor="checkbox"
-  >
+  <label>
     <input
       className="uk-checkbox"
       type="checkbox"
