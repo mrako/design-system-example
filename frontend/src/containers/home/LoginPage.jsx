@@ -24,9 +24,9 @@ class LoginPage extends Component {
 
         <Alert text={error} />
 
-        <TextField onChange={this.handleChange} placeholder="Username" name="email" type="text" icon="user" />
+        <TextField placeholder="Username" name="email" type="text" icon="user" onChange={this.handleChange} />
 
-        <TextField onChange={this.handleChange} placeholder="Password" name="password" type="password" icon="lock" />
+        <TextField placeholder="Password" name="password" type="password" icon="lock" onChange={this.handleChange} />
 
         <Checkbox id="rememberme" value="Keep me logged in" />
 
