@@ -35,5 +35,16 @@ Open Graphical Browser to  [Arguments]  ${location}
 Open browser and go to homepage
   Open Browser to   ${SERVER}
 
+Verify login page is open
+  Location should be          ${SERVER}/
+  Page Should Contain         Login
+
 Verify homepage is open
   Location should be          ${SERVER}/
+  Page Should Contain         Welcome!
+
+Login
+  [Arguments]     ${email}    ${password}
+  Input Text      email       ${email}
+  Input Text      password    ${password}
+  Click Button    LOG IN

@@ -1,10 +1,31 @@
 version: '2'
 
 services:
+  robot.db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: example
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  robot.backend:
+    build: backend
+    command: ./wait-for robot.db:5432 -- npm run dev
+    environment:
+      DATABASE_URL: postgres://example:example@robot.db/example
+    ports:
+      - 9000:9000
+    depends_on:
+      - robot.db
+
   robot.frontend:
     build: frontend
+    environment:
+      ENDPOINT: http://robot.backend:9000/api
     ports:
-      - 8000
+      - 8000:8000
 
   robot:
     build: robot
@@ -16,4 +37,5 @@ services:
       - ./robot:/robot:ro
       - ./results/robot:/results:rw
     depends_on:
+      - robot.backend
       - robot.frontend
