@@ -37,11 +37,11 @@ Open browser and go to homepage
 
 Verify login page is open
   Location should be          ${SERVER}/
-  Page Should Contain         Login
+  Wait Until Page Contains    Login
 
 Verify homepage is open
   Location should be          ${SERVER}/
-  Page Should Contain         Welcome!
+  Wait Until Page Contains    Welcome!
 
 Login
   [Arguments]     ${email}    ${password}

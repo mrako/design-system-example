@@ -40,6 +40,7 @@ pipeline {
 
     stage('Robot Test') {
       steps {
+        runCompose("-f compose/robot.yml", "run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all")
         runCompose("-f compose/robot.yml", "run robot")
       }
       post {
