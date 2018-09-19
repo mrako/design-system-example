@@ -10,21 +10,36 @@ This is a short presentation into how design systems could be used to add *autom
 * [nodejs](http://nodejs.org)
 * [docker](http://docker.com)
 
+## Database
 
-## Node
+    psql -c "CREATE ROLE example WITH CREATEDB LOGIN PASSWORD 'example'"
+    psql -c "CREATE DATABASE example WITH OWNER example"
+    psql -c "CREATE DATABASE example_test WITH OWNER example"
+
+## Running the application
+
+### Node
 
     cd frontend
     npm install
     npm run dev
 
-
-## Docker
+### Docker
 
     docker-compose build
     docker-compose up
 
-
-## Test
+### Test
 
     cd frontend
     npm test
+
+## Testing
+
+### Node
+
+    npm test
+
+### Docker
+
+    

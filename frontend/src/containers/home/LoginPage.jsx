@@ -1,29 +1,41 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import TextField from '../../components/designsystem/TextField';
 import Checkbox from '../../components/designsystem/Checkbox';
 import Button from '../../components/designsystem/Button';
+import Alert from '../../components/designsystem/Alert';
 
 import Footer from '../../components/Footer';
 
-const LoginPage = (props) => {
-  const { handleLogin } = props;
+class LoginPage extends Component {
+  state = { email: '', password: '' };
 
-  return (
-    <Fragment>
-      <legend className="uk-legend">Login</legend>
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
-      <TextField placeholder="Username" name="email" type="text" icon="user" />
+  render() {
+    const { error, handleLogin } = this.props;
+    const { email, password } = this.state;
 
-      <TextField placeholder="Password" name="password" type="password" icon="lock" />
+    return (
+      <Fragment>
+        <legend className="uk-legend">Login</legend>
 
-      <Checkbox id="rememberme" value="Keep me logged in" />
+        <Alert text={error} />
 
-      <Button type="submit" value="LOG IN" onClick={handleLogin} danger />
+        <TextField onChange={this.handleChange} placeholder="Username" name="email" type="text" icon="user" />
 
-      <Footer />
-    </Fragment>
-  );
-};
+        <TextField onChange={this.handleChange} placeholder="Password" name="password" type="password" icon="lock" />
+
+        <Checkbox id="rememberme" value="Keep me logged in" />
+
+        <Button type="submit" value="LOG IN" onClick={() => handleLogin(email, password)} primary />
+
+        <Footer />
+      </Fragment>
+    );
+  }
+}
 
 export default LoginPage;
