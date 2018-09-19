@@ -5,6 +5,7 @@ Library     SeleniumLibrary  timeout=30
 Variables   ./variables.py
 
 *** Keywords ***
+
 Open Browser to  [Arguments]  ${location}
   Run Keyword If      '${BROWSER}' == 'HeadlessChrome'      Open Headless Chrome Browser to    ${location}
   ...     ELSE IF     '${BROWSER}' == 'HeadlessFirefox'     Open Headless Firefox Browser to    ${location}
@@ -42,9 +43,3 @@ Verify login page is open
 Verify homepage is open
   Location should be          ${SERVER}/
   Wait Until Page Contains    Welcome!
-
-Login
-  [Arguments]     ${email}    ${password}
-  Input Text      email       ${email}
-  Input Text      password    ${password}
-  Click Button    LOG IN
