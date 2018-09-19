@@ -19,6 +19,8 @@ services:
       - ./backend/src:/usr/src/app/src
     ports:
       - 9000:9000
+    depends_on:
+      - db
 
   frontend:
     build: frontend
