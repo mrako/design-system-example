@@ -19,6 +19,7 @@
     "dev": "LOGGING=true ./node_modules/.bin/nodemon server.js",
     "start": "node server.js",
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --exit",
+    "test:xunit": "NODE_ENV=test DATABASE_URL=${DATABASE_URL:-postgres://example:example@localhost/example_test} ./node_modules/mocha/bin/mocha --timeout 10000 --exit -R xunit > ${OUTPUT:-test-results.xml}",
     "lint": "./node_modules/.bin/eslint --ext .js db scripts src test"
   },
   "dependencies": {

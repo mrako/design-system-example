@@ -8,7 +8,7 @@ import Alert from '../../components/designsystem/Alert';
 import Footer from '../../components/Footer';
 
 class LoginPage extends Component {
-  state = { email: '', password: '' };
+  state = { email: '', password: '' }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });

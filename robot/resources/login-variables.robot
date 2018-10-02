@@ -8,6 +8,7 @@ ${INVALID PASSWORD}               notvalidpassword
 
 ${EMPTY PASSWORD}
 
+
 *** Keywords ***
 
 Login
