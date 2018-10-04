@@ -27,7 +27,7 @@ This is a short presentation into how design systems could be used to add *autom
     
   Open Application login page with browser: [localhost:8000](http://localhost:8000)
 
-  Close application by giving Ctrl-C in terminal or command prompt window
+  Close application by Ctrl-C in terminal or command prompt window
 
 ### Unit test (Mocha and Jest)
 
