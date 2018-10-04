@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: example
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  backend:
+    build: backend
+    command: ./wait-for db:5432 -- npm run dev
+    environment:
+      DATABASE_URL: postgres://example:example@db/example
+    volumes:
+      - ./backend/src:/usr/src/app/src
+    ports:
+      - 9008:9008
+    depends_on:
+      - db
+
+  frontend:
+    build: frontend
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+    ports:
+      - 8008:8008
+    environment:
+      ENDPOINT: http://localhost:9000/api
+
+volumes:
+  dbdata:
