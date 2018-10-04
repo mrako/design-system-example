@@ -20,15 +20,14 @@ This is a short presentation into how design systems could be used to add *autom
 
 ### Application example
 
-  Give next commands in Terminal or Command Prompt window in design-system-example directory 
-  to build Application login page.
+  Execute the following commands in terminal or command prompt window in design-system-example directory to build Application login page.
     
     docker-compose build
     docker-compose up
     
-  Open Application login page with browser:  0.0.0.0.8000
+  Open Application login page with browser: [localhost:8000](http://localhost:8000)
 
-  Close application by giving CTR-C in Terminal or Command Prompt window
+  Close application by giving Ctrl-C in terminal or command prompt window
 
 ### Unit test (Mocha and Jest)
 
@@ -37,9 +36,7 @@ This is a short presentation into how design systems could be used to add *autom
 
 ### Acceptance test (Robot Framework)
 
-  Give next commands in Terminal or Command Prompt window in design-system-example directory 
-  to build test environment and start tests   
-  And give 'docker-compose build' command if needed
+  Execute the following commands in terminal or command prompt window in design-system-example directory to build test environment and start tests. 
 
     docker-compose --project-directory . -f compose/robot.yml run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all
     docker-compose --project-directory . -f compose/robot.yml run robot
