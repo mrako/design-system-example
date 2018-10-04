@@ -18,7 +18,7 @@ services:
     volumes:
       - ./backend/src:/usr/src/app/src
     ports:
-      - 9000:9008
+      - 9008:9000
     depends_on:
       - db
 
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./frontend/src:/usr/src/app/src
     ports:
-      - 8000:8008
+      - 8008:8000
     environment:
       ENDPOINT: http://localhost:9000/api
 
