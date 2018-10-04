@@ -18,16 +18,20 @@ This is a short presentation into how design systems could be used to add *autom
 
 ## Running the application using Docker
 
-### Application example
+### Start the application
 
-  Execute the following commands in terminal or command prompt window in design-system-example directory to build Application login page.
+Execute the following commands in terminal or command prompt window in design-system-example directory to build Application login page.
     
     docker-compose build
     docker-compose up
     
-  Open Application login page with browser: [localhost:8000](http://localhost:8000)
+Open the application login page in your browser: [localhost:8000](http://localhost:8000).
 
-  Close application by Ctrl-C in terminal or command prompt window
+Close the application by Ctrl-C in terminal or command prompt window
+
+### Stop the application and remove data
+
+    docker-compose down -v
 
 ### Unit test (Mocha and Jest)
 
@@ -36,14 +40,14 @@ This is a short presentation into how design systems could be used to add *autom
 
 ### Acceptance test (Robot Framework)
 
-  Execute the following commands in terminal or command prompt window in design-system-example directory to build test environment and start tests. 
+Execute the following commands in terminal or command prompt window in design-system-example directory to build the test environment and start the acceptance tests. Stop your application before running the robot tests.
 
     docker-compose --project-directory . -f compose/robot.yml run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all
     docker-compose --project-directory . -f compose/robot.yml run robot
 
 ## Running the application using Node
 
-### Setting up local database
+### Setting up the local database
 
     psql -c "CREATE ROLE example WITH CREATEDB LOGIN PASSWORD 'example'"
     psql -c "CREATE DATABASE example WITH OWNER example"
