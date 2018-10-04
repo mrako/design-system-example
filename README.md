@@ -30,6 +30,7 @@ This is a short presentation into how design systems could be used to add *autom
 
 ### Acceptance test (Robot Framework)
 
+    docker-compose --project-directory . -f compose/robot.yml run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all
     docker-compose --project-directory . -f compose/robot.yml run robot
 
 ## Running the application using Node
