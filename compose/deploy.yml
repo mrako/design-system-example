@@ -29,7 +29,7 @@ services:
     ports:
       - 8008:8000
     environment:
-      ENDPOINT: http://localhost:9000/api
+      ENDPOINT: http://localhost:9008/api
 
 volumes:
   dbdata:
