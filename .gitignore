@@ -10,6 +10,7 @@ node_modules
 # Ansible
 .vagrant
 playbook.retry
+hosts.*
 
 # Environment
 .env
