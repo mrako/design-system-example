@@ -78,3 +78,15 @@ Execute the following commands in terminal or command prompt window in design-sy
 
     cd frontend
     npm test
+
+## Ansible
+
+### Provision EC2 with Docker
+
+    ansible-playbook provisioning/playbook.yml --private-key keys/hopefully-works-aws.pem -i provisioning/hosts.ec2 -u ubuntu
+
+## Kubernetes
+
+### Install Kubernetes
+
+    docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:latest --no-cacerts
