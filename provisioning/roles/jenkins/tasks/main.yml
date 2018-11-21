@@ -1,0 +1,27 @@
+---
+- name: Install OpenJDK 8
+  apt: name=openjdk-8-jdk update_cache=yes
+
+- name: Add jenkins apt repository key
+  apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+
+- name: Add apt repository
+  apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+
+- name: Install Jenkins
+  apt: name=jenkins update_cache=yes
+
+- name: Start Jenkins
+  service: name=jenkins state=started
+
+- name: Sleep for 10 seconds
+  wait_for: timeout=10
+
+- name: Get init password
+  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+  changed_when: false
+  register: result
+
+- name: Print init password Jenkins
+  debug:
+    var: result.stdout

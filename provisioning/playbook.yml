@@ -11,3 +11,4 @@
   become_method: sudo
   roles:
     - docker
+    - jenkins
