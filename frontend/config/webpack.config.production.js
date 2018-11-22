@@ -10,11 +10,9 @@ const WebpackCdnPlugin = require('webpack-cdn-plugin');
 
 const config = require('./webpack.config.base');
 
-const GITHASH = process.env.GITHASH || require('child_process').execSync('git rev-parse --short HEAD').toString().trim();
-
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
-  'process.env.ENDPOINT': JSON.stringify(process.env.ENDPOINT || 'http://0.0.0.0:9000/api'),
+  'process.env.ENDPOINT': JSON.stringify(process.env.ENDPOINT || 'https://designsystem.hopefully.works/api'),
 };
 
 module.exports = merge(config, {
@@ -25,7 +23,6 @@ module.exports = merge(config, {
   plugins: [
     new CleanWebpackPlugin(['build/*'], { root: path.resolve(__dirname, '..') }),
     new CopyWebpackPlugin([{ from: path.join(__dirname, '../src/public/images'), to: 'images' }]),
-    new CopyWebpackPlugin([{ from: path.join(__dirname, '../src/public/locales'), to: 'locales' }]),
     new WebpackCdnPlugin({
       modules: {
         react: [

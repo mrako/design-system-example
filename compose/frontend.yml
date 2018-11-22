@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  nginx:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.production
+    environment:
+      ENDPOINT: https://designsystem.hopefully.works/api
+
+volumes:
+  dbdata:
