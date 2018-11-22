@@ -14,7 +14,7 @@ spec:
           image: mrako/designsystem-frontend
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 80
           env:
             - name: ENDPOINT
               value: https://designsystem.hopefully.works/api

@@ -6,8 +6,8 @@ metadata:
     name: designsystem-frontend
 spec:
   ports:
-    - port: 8000
-      targetPort: 8000
+    - port: 80
+      targetPort: 80
   selector:
     name: designsystem-frontend
   type: NodePort
