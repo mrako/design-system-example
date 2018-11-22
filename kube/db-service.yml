@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: designsystem-db
+  labels:
+    name: designsystem-db
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    name: designsystem-db
+  type: ClusterIP

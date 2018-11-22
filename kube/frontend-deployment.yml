@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: designsystem-frontend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: designsystem-frontend
+    spec:
+      containers:
+        - name: designsystem-frontend
+          image: mrako/designsystem-frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ENDPOINT
+              value: https://designsystem.hopefully.works/api
+      nodeSelector:
+        type: worker

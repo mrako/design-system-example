@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: designsystem-backend
+  labels:
+    name: designsystem-backend
+spec:
+  ports:
+    - port: 9000
+      targetPort: 9000
+  selector:
+    name: designsystem-backend
+  type: NodePort

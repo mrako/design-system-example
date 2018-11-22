@@ -65,7 +65,7 @@ pipeline {
     stage('Deploy') {
       steps {
         runCompose("-f docker-compose.yml -f compose/test.yml -f compose/robot.yml", "down -v")
-        runCompose("-f compose/deploy.yml", "up -d")
+        runDeploy()
       }
     }
   }
@@ -79,7 +79,11 @@ pipeline {
 }
 
 def runCompose(composeFiles = "", operation = "build", setEnvironment = "") {
-  sh "${setEnvironment} docker-compose -p design --project-directory . ${composeFiles} ${operation}"
+  sh "${setEnvironment} docker-compose -p designsystem --project-directory . ${composeFiles} ${operation}"
+}
+
+def runDeploy() {
+  sh "bin/deploy.sh"
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {

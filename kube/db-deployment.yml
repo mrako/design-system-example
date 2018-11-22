@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: designsystem-db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: designsystem-db
+    spec:
+      containers:
+        - name: designsystem-db
+          image: postgres:alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: designsystem
+            - name: POSTGRES_PASSWORD
+              value: designsystem
+            - name: POSTGRES_USER
+              value: designsystem
+      nodeSelector:
+        type: worker

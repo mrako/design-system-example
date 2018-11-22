@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: designsystem-frontend
+  labels:
+    name: designsystem-frontend
+spec:
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    name: designsystem-frontend
+  type: NodePort
