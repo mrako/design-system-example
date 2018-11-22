@@ -5,7 +5,7 @@ set -e
 GITHASH=${GITHASH:-`git rev-parse --short HEAD`}
 
 docker-compose -p designsystem build --pull backend
-GITHASH=${GITHASH} docker-compose -p designsystem --project-directory . -f compose/frontend.yml build --pull nginx
+ENDPOINT="https://designsystem.hopefully.works/api" docker-compose -p designsystem --project-directory . -f compose/frontend.yml build --pull nginx
 
 docker tag designsystem_backend mrako/designsystem-backend:${GITHASH}
 docker tag designsystem_nginx mrako/designsystem-frontend:${GITHASH}
