@@ -8,9 +8,13 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker-compose -p designsystem -f docker-compose.yml -f compose/test.yml -f compose/robot.yml build
+  - docker-compose -p designsystem --project-directory . -f docker-compose.yml -f compose/test.yml -f compose/robot.yml build
 
 jobs:
   include:
     - stage: jest
-      script: docker-compose -p designsystem -f compose/test.yml run jest
+      script: docker-compose -p designsystem --project-directory . -f compose/test.yml run jest
+    - stage: lint
+      script: docker-compose -p designsystem --project-directory . -f compose/test.yml run lint
+    - stage: audit
+      script: docker-compose -p designsystem --project-directory . -f compose/test.yml run audit
