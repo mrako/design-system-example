@@ -18,3 +18,5 @@ jobs:
       script: docker-compose -p designsystem --project-directory . -f compose/test.yml run lint
     - stage: audit
       script: docker-compose -p designsystem --project-directory . -f compose/test.yml run audit
+    - stage: robot
+      script: bin/deploy.sh
