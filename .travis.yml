@@ -1,0 +1,16 @@
+env:
+  - DOCKER_COMPOSE_VERSION=1.23.2
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - docker-compose -p designsystem -f docker-compose.yml -f compose/test.yml -f compose/robot.yml build
+
+jobs:
+  include:
+    - stage: jest
+      script: docker-compose -p designsystem -f compose/test.yml run jest
