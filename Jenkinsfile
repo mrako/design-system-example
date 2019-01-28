@@ -32,8 +32,17 @@ pipeline {
             runCompose("-f compose/test.yml", "run audit")
           }
         }
+      }
+    }
 
-        stage('Test Components') {
+    stage('Unit Test') {
+      parallel {
+        stage('Mocha') {
+          steps {
+            runCompose("-f compose/test.yml", "run mocha")
+          }
+        }
+        stage('Jest') {
           steps {
             sleep 1
             runCompose("-f compose/test.yml", "run jest")
