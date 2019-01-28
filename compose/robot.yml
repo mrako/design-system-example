@@ -27,7 +27,7 @@ services:
 
   robot:
     build: robot
-    command: sh -c '/robot/wait-for robot.frontend:8000 -t 5 -r 10 --wget -- python /robot/run.py --outputdir /results'
+    command: sh -c '/robot/wait-for robot.frontend:8000 -t 5 -r 10 --wget -- robot --outputdir /results /robot'
     environment:
       BROWSER: HeadlessChrome
       SERVER: http://robot.frontend:8000

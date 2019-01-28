@@ -1,6 +1,6 @@
 *** Settings ***
 
-Library     SeleniumLibrary  timeout=30
+Library     SeleniumLibrary  timeout=5
 
 Variables   ./variables.py
 
@@ -13,11 +13,11 @@ Open Browser to  [Arguments]  ${location}
 
 Open Headless Chrome Browser to  [Arguments]  ${location}
   ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-  Call Method    ${chrome_options}    add_argument    test-type
+  Call Method    ${chrome_options}    add_argument    --disable-gpu
   Call Method    ${chrome_options}    add_argument    --disable-extensions
   Call Method    ${chrome_options}    add_argument    --headless
-  Call Method    ${chrome_options}    add_argument    --disable-gpu
   Call Method    ${chrome_options}    add_argument    --no-sandbox
+  Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
   Create Webdriver    Chrome    chrome_options=${chrome_options}
   Set Window Size    1920    1080
   Go To    ${location}
