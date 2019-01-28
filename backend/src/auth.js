@@ -9,7 +9,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  database.User.find({ where: { id } }).then(
+  database.User.findOne({ where: { id } }).then(
     (user) => {
       done(null, user);
     },
@@ -22,7 +22,7 @@ passport.deserializeUser((id, done) => {
 exports.login = async (ctx) => {
   const { body } = ctx.request;
 
-  const user = await database.User.find({ where: { email: body.email.toLowerCase() } });
+  const user = await database.User.findOne({ where: { email: body.email.toLowerCase() } });
 
   if (!user) {
     throw new ClientError('INCORRECT_EMAIL', 401);
