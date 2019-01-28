@@ -1,4 +1,6 @@
 pipeline {
+  agent none
+
   options {
     timeout(time: 20, unit: 'MINUTES')
   }
