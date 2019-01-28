@@ -1,7 +1,7 @@
 *** Settings ***
 
-Resource   ${PROJECTROOT}${/}resources${/}common.robot
-Resource   ${PROJECTROOT}${/}resources${/}login-variables.robot
+Resource   ${CURDIR}/../resources/common.robot
+Resource   ${CURDIR}/../resources/login-variables.robot
 
 Test template     Login Should Fail With Incorrect Credentials
 Suite Setup       Open browser and go to homepage

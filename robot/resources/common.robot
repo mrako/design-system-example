@@ -43,3 +43,5 @@ Verify login page is open
 Verify homepage is open
   Location should be          ${SERVER}/
   Wait Until Page Contains    Welcome!
+  # Let user see that the test has passed
+  Sleep  5

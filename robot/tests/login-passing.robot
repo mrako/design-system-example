@@ -1,7 +1,7 @@
 *** Settings ***
 
-Resource   ${PROJECTROOT}${/}resources${/}common.robot
-Resource   ${PROJECTROOT}${/}resources${/}login-variables.robot
+Resource   ${CURDIR}/../resources/common.robot
+Resource   ${CURDIR}/../resources/login-variables.robot
 
 Test Setup          Open browser and go to homepage
 Test Teardown       Close All Browsers
