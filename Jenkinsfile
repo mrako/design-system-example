@@ -1,8 +1,4 @@
 pipeline {
-  agent {
-    label 'docker'
-  }
-
   options {
     timeout(time: 20, unit: 'MINUTES')
   }
@@ -20,23 +16,30 @@ pipeline {
       }
     }
 
-    stage('Test Components') {
-      steps {
-        runCompose("-f compose/test.yml", "run jest")
+    stage('Quality') {
+      parallel {
+        stage('Lint') {
+          steps {
+            runCompose("-f compose/test.yml", "run lint")
+          }
+        }
+
+        stage('Audit') {
+          steps {
+            sleep 1
+            runCompose("-f compose/test.yml", "run audit")
+          }
+        }
+
+        stage('Test Components') {
+          steps {
+            sleep 1
+            runCompose("-f compose/test.yml", "run jest")
+          }
+        }
       }
     }
 
-    stage('Lint') {
-      steps {
-        runCompose("-f compose/test.yml", "run lint")
-      }
-    }
-
-    stage('Audit') {
-      steps {
-        runCompose("-f compose/test.yml", "run audit")
-      }
-    }
 
     stage('Robot Test') {
       steps {
