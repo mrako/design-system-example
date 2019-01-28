@@ -30,7 +30,7 @@ class LoginPage extends Component {
 
         <Checkbox id="rememberme" value="Keep me logged in" />
 
-        <Button type="submit" value="LOG IN" onClick={() => handleLogin(email, password)} primary />
+        <Button type="submit" value="LOGIN" onClick={() => handleLogin(email, password)} danger />
 
         <Footer />
       </Fragment>
