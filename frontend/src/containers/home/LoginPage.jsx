@@ -16,13 +16,13 @@ class LoginPage extends Component {
 
   render() {
     const { error, handleLogin } = this.props;
-    const { email, password } = this.state;
+    const { email, password } = this.state
 
     return (
       <Fragment>
         <legend className="uk-legend">Login</legend>
 
-        <Alert text={error} />
+        <Alert text={error}/>
 
         <TextField placeholder="Username" name="email" type="text" icon="user" onChange={this.handleChange} />
 
@@ -30,7 +30,7 @@ class LoginPage extends Component {
 
         <Checkbox id="rememberme" value="Keep me logged in" />
 
-        <Button type="submit" value="LOG IN" onClick={() => handleLogin(email, password)} danger />
+        <Button type="submit" value="LOGIN" onClick={() => handleLogin(email, password)} primary />
 
         <Footer />
       </Fragment>
