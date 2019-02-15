@@ -16,13 +16,13 @@ class LoginPage extends Component {
 
   render() {
     const { error, handleLogin } = this.props;
-    const { email, password } = this.state
+    const { email, password } = this.state;
 
     return (
       <Fragment>
         <legend className="uk-legend">Login</legend>
 
-        <Alert text={error}/>
+        <Alert text={error} />
 
         <TextField placeholder="Username" name="email" type="text" icon="user" onChange={this.handleChange} />
 
