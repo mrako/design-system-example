@@ -14,23 +14,32 @@ class LoginPage extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  render() {
-    const { error, handleLogin } = this.props;
+  handleSubmit = (event) => {
+    const { handleLogin } = this.props;
     const { email, password } = this.state;
+
+    handleLogin(email, password);
+    event.preventDefault();
+  }
+
+  render() {
+    const { error } = this.props;
 
     return (
       <Fragment>
-        <legend className="uk-legend">Login</legend>
+        <form onSubmit={this.handleSubmit}>
+          <legend className="uk-legend">Login</legend>
 
-        <Alert text={error} />
+          <Alert text={error} />
 
-        <TextField placeholder="Username" name="email" type="text" icon="user" onChange={this.handleChange} />
+          <TextField placeholder="Username" name="email" type="text" icon="user" onChange={this.handleChange} />
 
-        <TextField placeholder="Password" name="password" type="password" icon="lock" onChange={this.handleChange} />
+          <TextField placeholder="Password" name="password" type="password" icon="lock" onChange={this.handleChange} />
 
-        <Checkbox id="rememberme" value="Keep me logged in" />
+          <Checkbox id="rememberme" value="Keep me logged in" />
 
-        <Button type="submit" value="LOG IN" onClick={() => handleLogin(email, password)} primary />
+          <Button primary type="submit" value="LOG IN" />
+        </form>
 
         <Footer />
       </Fragment>
