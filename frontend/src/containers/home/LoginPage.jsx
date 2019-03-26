@@ -38,7 +38,7 @@ class LoginPage extends Component {
 
           <Checkbox id="rememberme" value="Keep me logged in" />
 
-          <Button primary type="submit" value="LOG IN" />
+          <Button danger type="submit" value="LOG IN" />
         </form>
 
         <Footer />
