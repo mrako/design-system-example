@@ -21,7 +21,7 @@ module.exports = merge(config, {
     main: ['@babel/polyfill', path.join(__dirname, '../src/client.jsx')],
   },
   plugins: [
-    new CleanWebpackPlugin(['build/*'], { root: path.resolve(__dirname, '..') }),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([{ from: path.join(__dirname, '../src/public/images'), to: 'images' }]),
     new WebpackCdnPlugin({
       modules: {
