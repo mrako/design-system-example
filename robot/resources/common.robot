@@ -31,7 +31,6 @@ Open Headless Firefox Browser to  [Arguments]  ${location}
 
 Open Graphical Browser to  [Arguments]  ${location}
   Open Browser    ${location}    ${BROWSER}
-  # Maximize Browser Window
 
 Open browser and go to homepage
   Open Browser to   ${SERVER}
