@@ -29,7 +29,7 @@ pipeline {
         stage('Audit') {
           steps {
             sleep 1
-            runCompose("-f compose/test.yml", "run audit")
+            // runCompose("-f compose/test.yml", "run audit")
           }
         }
       }
