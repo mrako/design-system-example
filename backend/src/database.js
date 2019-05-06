@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt-nodejs');
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://example:example@localhost/example';
 
 const sequelize = new Sequelize(DATABASE_URL, {
-  operatorsAliases: false,
   logging: false,
 });
 
