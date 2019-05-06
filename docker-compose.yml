@@ -24,12 +24,12 @@ services:
 
   frontend:
     build: frontend
-    volumes:
-      - ./frontend/src:/usr/src/app/src
-    ports:
-      - 8000:8000
     environment:
       ENDPOINT: http://localhost:9000/api
+    ports:
+      - 8000:8000
+    volumes:
+      - ./frontend/src:/usr/src/app/src
 
 volumes:
   dbdata:
