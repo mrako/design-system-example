@@ -19,7 +19,7 @@
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "uikit": "^3.0.3"
+    "uikit": "mrako/uikit#v3.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
