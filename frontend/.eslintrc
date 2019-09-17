@@ -24,6 +24,7 @@
     "jsx-a11y/label-has-for": [ 2, { "required": { "every": [ "id" ] } }],
     "react/jsx-one-expression-per-line": "off",
     "react/button-has-type": "off",
+    "react/state-in-constructor": "off",
     "object-curly-newline": "off"
   },
   "plugins": [
