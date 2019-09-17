@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import TextField from '../../components/designsystem/TextField';
 import Checkbox from '../../components/designsystem/Checkbox';
@@ -26,7 +26,7 @@ class LoginPage extends Component {
     const { error } = this.props;
 
     return (
-      <Fragment>
+      <>
         <form onSubmit={this.handleSubmit}>
           <legend className="uk-legend">Login</legend>
 
@@ -42,7 +42,7 @@ class LoginPage extends Component {
         </form>
 
         <Footer />
-      </Fragment>
+      </>
     );
   }
 }
