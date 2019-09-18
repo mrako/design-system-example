@@ -23,10 +23,10 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { error } = this.props;
+    const { error } = this.props
 
     return (
-      <>
+      <div>
         <form onSubmit={this.handleSubmit}>
           <legend className="uk-legend">Login</legend>
 
@@ -38,11 +38,11 @@ class LoginPage extends Component {
 
           <Checkbox id="rememberme" value="Keep me logged in" />
 
-          <Button primary type="submit" value="LOGIN" />
+          <Button danger type="submit" value="LOGIN" />
         </form>
 
         <Footer />
-      </>
+      </div>
     );
   }
 }
