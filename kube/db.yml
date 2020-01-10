@@ -1,13 +1,28 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: designsystem-db
 spec:
+  selector:
+    app: designsystem-db
+  ports:
+    - port: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: designsystem-db-deployment
+  labels:
+    app: designsystem-db
+spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: designsystem-db
   template:
     metadata:
       labels:
-        name: designsystem-db
+        app: designsystem-db
     spec:
       containers:
         - name: designsystem-db
@@ -22,5 +37,3 @@ spec:
               value: designsystem
             - name: POSTGRES_USER
               value: designsystem
-      nodeSelector:
-        type: worker

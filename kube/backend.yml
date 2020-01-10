@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: designsystem-backend-service
+spec:
+  selector:
+    app: designsystem-backend
+  ports:
+    - port: 9000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: designsystem-backend-deployment
+  labels:
+    app: designsystem-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: designsystem-backend
+  template:
+    metadata:
+      labels:
+        app: designsystem-backend
+    spec:
+      containers:
+        - name: designsystem-backend
+          image: mrako/designsystem-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9000
+          env:
+            - name: DATABASE_URL
+              value: postgres://designsystem:designsystem@designsystem-db/designsystem
+      imagePullSecrets:
+        - name: dockerhub
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: designsystem-backend-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: designsystem.hopefully.works
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: designsystem-backend-service
+          servicePort: 9000
