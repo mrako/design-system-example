@@ -7,7 +7,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Audit Backend
-        run: docker-compose --project-directory . -f compose/test.yml run audit-backend
-      - name: Audit Frontend
-        run: docker-compose --project-directory . -f compose/test.yml run audit-frontend
+      - name: Audit
+        run: docker-compose --project-directory . -f compose/test.yml run audit

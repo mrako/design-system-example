@@ -8,4 +8,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Lint Backend
-        run: docker-compose --project-directory . -f compose/test.yml run lint-backend
+        run: docker-compose --project-directory . -f compose/test.yml run lint
