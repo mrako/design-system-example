@@ -1,0 +1,11 @@
+name: test
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Mocha
+        run: docker-compose --project-directory . -f compose/test.yml run mocha

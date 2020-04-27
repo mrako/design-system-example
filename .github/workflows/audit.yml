@@ -1,0 +1,13 @@
+name: audit
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Audit Backend
+        run: docker-compose --project-directory . -f compose/test.yml run audit-backend
+      - name: Audit Frontend
+        run: docker-compose --project-directory . -f compose/test.yml run audit-frontend
