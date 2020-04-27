@@ -9,7 +9,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
   logging: false,
 });
 
-/** INIT CHAT TABLE WITH MESSAGE **/
+/** INIT TABLES **/
 
 const User = sequelize.define('users', {
   email: { type: Sequelize.STRING, unique: true },
@@ -32,7 +32,7 @@ User.prototype.toJSON = function toJSON () {
   return { id: this.id, email: this.email };
 };
 
-/** EXPORT USER OBJECT **/
+/** EXPORT OBJECTS **/
 
 exports.sync = options => sequelize.sync(options);
 
