@@ -3,7 +3,7 @@ FROM alpine:latest
 ADD ./wait-for ./
 
 # PYTHON
-RUN apk add --no-cache python py-pip
+RUN apk add --no-cache python3 py-pip
 
 # CHROME
 RUN apk add --no-cache chromium chromium-chromedriver
