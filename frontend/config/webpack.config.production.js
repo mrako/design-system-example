@@ -1,6 +1,7 @@
-const path = require('path');
-const merge = require('webpack-merge');
 const webpack = require('webpack');
+const path = require('path');
+
+const { merge } = require('webpack-merge');
 
 const MinifyPlugin = require('babel-minify-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -17,11 +18,13 @@ const GLOBALS = {
 module.exports = merge(config, {
   mode: 'production',
   entry: {
-    main: ['@babel/polyfill', path.join(__dirname, '../src/client.jsx')],
+    main: ['@babel/polyfill', path.join(__dirname, '../src/index.jsx')],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([{ from: path.join(__dirname, '../src/public/images'), to: 'images' }]),
+    new CopyWebpackPlugin({ patterns: [
+      { from: path.join(__dirname, '../src/public/images'), to: 'images' },
+    ] }),
     new WebpackCdnPlugin({
       modules: {
         react: [

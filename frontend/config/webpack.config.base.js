@@ -44,21 +44,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx$/,
         include: path.resolve(__dirname, '../src'),
         loader: 'babel-loader',
-        query: {
-          presets: [
-            '@babel/preset-react',
-            ['@babel/env', { targets: { browsers: ['last 2 versions'] }, modules: false }],
-          ],
-          plugins: [
-            '@babel/plugin-proposal-class-properties',
-          ],
-        },
       },
       {
-        test: /\.css$/,
+        test: /\.css/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' },
@@ -74,11 +65,15 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader',
+        use: [
+          { loader: 'json-loader' },
+        ]
       },
       {
         test: /\.(woff|woff2|ttf|eot|svg|png|jpg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
-        loader: 'url-loader?limit=100000',
+        use: [
+          { loader: 'url-loader?limit=100000' },
+        ]
       },
     ],
   },
