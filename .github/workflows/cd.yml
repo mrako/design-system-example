@@ -1,4 +1,5 @@
-name: lint
+
+name: Continuous Integration
 on: [push, pull_request]
 jobs:
   build:
@@ -7,5 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: Audit
+        run: docker-compose --project-directory . -f compose/test.yml run audit
       - name: Lint Backend
         run: docker-compose --project-directory . -f compose/test.yml run lint
+      - name: Mocha
+        run: docker-compose --project-directory . -f compose/test.yml run mocha
