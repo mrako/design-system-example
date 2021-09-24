@@ -34,7 +34,6 @@ class App extends Component {
     }
   }
 
-
   render() {
     const { login, error } = this.state;
 
