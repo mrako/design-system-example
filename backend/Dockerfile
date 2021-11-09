@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM --platform=linux/amd64 node:16.3-alpine3.12
 
 # Create app directory
 RUN mkdir -p /usr/src/app
