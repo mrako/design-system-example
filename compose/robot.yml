@@ -7,6 +7,8 @@ services:
       POSTGRES_DB: example
       POSTGRES_PASSWORD: example
       POSTGRES_USER: example
+    networks:
+      - app
 
   robot.backend:
     build: backend
@@ -17,6 +19,8 @@ services:
       - 9000:9000
     depends_on:
       - robot.db
+    networks:
+      - app
 
   robot.frontend:
     build: frontend
@@ -24,6 +28,8 @@ services:
       ENDPOINT: http://robot.backend:9000/api
     ports:
       - 8000:8000
+    networks:
+      - app
 
   robot:
     build: robot
@@ -37,3 +43,8 @@ services:
     depends_on:
       - robot.backend
       - robot.frontend
+    networks:
+      - app
+
+networks:
+  app:
