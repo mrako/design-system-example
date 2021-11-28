@@ -31,6 +31,7 @@ Open Headless Firefox Browser to  [Arguments]  ${location}
 
 Open Graphical Browser to  [Arguments]  ${location}
   Open Browser    ${location}    ${BROWSER}
+  Set Selenium Speed  0.1 seconds
 
 Open browser and go to homepage
   Open Browser to   ${SERVER}
