@@ -6,7 +6,6 @@ const { merge } = require('webpack-merge');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const WebpackCdnPlugin = require('webpack-cdn-plugin');
 
 const config = require('./webpack.config.base');
 
@@ -25,15 +24,6 @@ module.exports = merge(config, {
     new CopyWebpackPlugin({ patterns: [
       { from: path.join(__dirname, '../src/public/images'), to: 'images' },
     ] }),
-    new WebpackCdnPlugin({
-      modules: {
-        react: [
-          { name: 'react', var: 'React', path: 'umd/react.production.min.js' },
-          { name: 'react-dom', var: 'ReactDOM', path: 'umd/react-dom.production.min.js' },
-        ],
-      },
-      publicPath: '/node_modules',
-    }),
     new MinifyPlugin({}, { sourceMap: null }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin(GLOBALS),
