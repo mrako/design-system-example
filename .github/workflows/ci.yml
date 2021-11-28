@@ -1,4 +1,3 @@
-
 name: Continuous Integration
 on: [push, pull_request]
 jobs:
@@ -14,7 +13,3 @@ jobs:
         run: docker-compose --project-directory . -f compose/test.yml run lint
       - name: Mocha
         run: docker-compose --project-directory . -f compose/test.yml run mocha
-      - name: Seed DB
-        run: docker-compose --project-directory . -f compose/robot.yml run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all
-      - name: Run Robot
-        run: docker-compose --project-directory . -f compose/robot.yml run robot
