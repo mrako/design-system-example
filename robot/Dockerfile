@@ -1,6 +1,4 @@
-FROM --platform=linux/amd64 alpine:latest
-
-ADD ./wait-for ./
+FROM --platform=linux/amd64 alpine:3.12
 
 # PYTHON
 RUN apk add --no-cache python3 py-pip
