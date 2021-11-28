@@ -25,7 +25,7 @@ services:
   robot.frontend:
     build: frontend
     environment:
-      ENDPOINT: http://robot.backend:9000/api
+      ENDPOINT: http://localhost:9000/api
     ports:
       - 8000:8000
     networks:
@@ -33,18 +33,19 @@ services:
 
   robot:
     build: robot
-    command: sh -c '/robot/wait-for robot.frontend:8000 -t 5 -r 10 --wget -- robot --outputdir /results /robot'
+    command: sh -c '/robot/wait-for localhost:8000 -t 5 -r 10 --wget -- robot --outputdir /results /robot'
     environment:
       BROWSER: HeadlessChrome
-      SERVER: http://robot.frontend:8000
+      SERVER: http://localhost:8000
+    ports:
+      - 8000:8000
     volumes:
       - ./robot:/robot:ro
       - ./results/robot:/results:rw
     depends_on:
       - robot.backend
       - robot.frontend
-    networks:
-      - app
+    network_mode: "host"
 
 networks:
   app:
