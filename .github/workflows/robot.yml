@@ -1,0 +1,19 @@
+name: Acceptance tests
+on: [push, pull_request]
+
+jobs:
+  robot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Seed DB
+        run: docker-compose --project-directory . -f compose/robot.yml run robot.backend ./wait-for robot.db:5432 -- npm run db:seed:all
+      - name: Run Robot
+        run: docker-compose --project-directory . -f compose/robot.yml run robot
+      - name: upload reports
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: results
+          path: results/robot
